@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="cn">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.0.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.0" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta property="og:site_name" content="hill&#39;s blog">
+<meta property="og:locale" content="cn">
+<meta property="article:published_time" content="2017-07-10T08:36:26.000Z">
+<meta property="article:modified_time" content="2020-06-04T09:05:51.361Z">
+<meta property="article:author" content="heyaojia">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/categories/"/>
+
+
+
+
+
+  <title>《Erlang Test》 | hill's blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="cn">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">hill's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/04/Erlang/erlang_test/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="heyaojia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hill's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">《Erlang Test》</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-04T22:37:03+08:00">2020-06-04</time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Erlang/" itemprop="url" rel="index">
+                    <span itemprop="name">Erlang</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="《Erlang-Test》"><a href="#《Erlang-Test》" class="headerlink" title="《Erlang Test》"></a>《Erlang Test》</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">前言：格物致知</span><br></pre></td></tr></table></figure>
+
+<p>目录：</p>
+<ol>
+<li>common_test使用笔记</li>
+<li>eunit使用笔记<a id="more"></a>
+<h3 id="一、common-test"><a href="#一、common-test" class="headerlink" title="一、common_test"></a>一、common_test</h3><h4 id="（1）初识common-test"><a href="#（1）初识common-test" class="headerlink" title="（1）初识common_test"></a>（1）初识common_test</h4><h5 id="1-common-test-简介"><a href="#1-common-test-简介" class="headerlink" title="1.common_test 简介"></a>1.common_test 简介</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Automated execution of test suites (sets of test cases)</span><br><span class="line">自动执行测试的用例</span><br><span class="line">Logging of events during execution</span><br><span class="line">在执行期间记录事件</span><br><span class="line">HTML presentation of test suite results</span><br><span class="line"></span><br><span class="line">HTML presentation of test suite code</span><br><span class="line">Support functions for test suite authors</span><br><span class="line">Step-by-step execution of test cases</span><br></pre></td></tr></table></figure>
+<h5 id="2-common-test-基本用法"><a href="#2-common-test-基本用法" class="headerlink" title="2.common_test 基本用法"></a>2.common_test 基本用法</h5>一些通用的概念<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">必须导出 ----- all&#x2F;0</span><br><span class="line">命名规则 ----- *_SUITE.erl</span><br><span class="line">推荐导入 ----- -include(ct.hrl)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>测试规范语法（test.spec）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;Key, value&#125;</span><br><span class="line">解释一些通用的方法</span><br><span class="line">include     -&gt; 导入一些路径，不只是hrl</span><br><span class="line">ct_hooks    -&gt; 安装common_test的一些插件</span><br><span class="line">suites      -&gt; 测试用例</span><br><span class="line">skip_suites -&gt; 跳过测试用例</span><br><span class="line">skip_groups -&gt; 跳过测试用例集合</span><br><span class="line">config      -&gt; 配置文件路径</span><br><span class="line">alias       -&gt; 别名，方便配置（新版Erlang推荐使用define ）</span><br></pre></td></tr></table></figure>
+<p>config写法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">写：</span><br><span class="line">    &#123;Key,value&#125;.  **注意.号</span><br><span class="line">读：</span><br><span class="line">    ct:get_config(Key).</span><br></pre></td></tr></table></figure>
+<p>启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Command line内</span><br><span class="line">ct_run -spec test.spec -pa ..&#x2F;ebin -noinput -sname XXX</span><br><span class="line"></span><br><span class="line">Erlang shell内</span><br><span class="line">ct:run_test([&#123;suite,&quot;.&#x2F;my_SUITE&quot;&#125;,&#123;logdir,&quot;.&#x2F;results&quot;&#125;]).</span><br><span class="line">&#96;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>引用  </li>
+</ul>
+<p>1.更多规范阅读官方文档<br>地址 <a href="https://erlang.org/doc/apps/common_test/run_test_chapter.html" target="_blank" rel="noopener">https://erlang.org/doc/apps/common_test/run_test_chapter.html</a></p>
+<h4 id="（2）Common-test实践"><a href="#（2）Common-test实践" class="headerlink" title="（2）Common_test实践"></a>（2）Common_test实践</h4><ul>
+<li><p>通用导出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">all()-&gt;</span><br><span class="line">    [</span><br><span class="line">        %%假设写了一个背包模块需要测试</span><br><span class="line">        t_bag_function&#x2F;1 %%必须给一个参数用来装Config</span><br><span class="line">    ].</span><br><span class="line">    </span><br><span class="line">%%全局的一个CTH的配置，后面会讲CTH的作用    </span><br><span class="line">suite() -&gt;</span><br><span class="line">    [&#123;ct_hooks, [cth_surefire]&#125;, &#123;timetrap, &#123;seconds, 30&#125;&#125;].</span><br></pre></td></tr></table></figure>
+<h5 id="1-testcase模式（这里我理解为单例，一个test进程做事"><a href="#1-testcase模式（这里我理解为单例，一个test进程做事" class="headerlink" title="1.testcase模式（这里我理解为单例，一个test进程做事"></a>1.testcase模式（这里我理解为单例，一个test进程做事</h5></li>
+<li><p>导出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">init_per_testcase(TestCase, Config) -&gt;  </span><br><span class="line">    Link &#x3D; LinkSupport:start_link(),</span><br><span class="line">    [&#123;link, Link&#125; | Config].</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">end_per_testcase(TestCase, Config) -&gt;</span><br><span class="line">    ok.</span><br><span class="line">%%可以在这里做一些事情，比如说创建连接</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>t_bag_function/1的函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">t_bag_function(Config) -&gt;</span><br><span class="line">    Link &#x3D; ?config(link, Config),</span><br><span class="line">    R &#x3D; #get_bag_item&#123;&#125;,</span><br><span class="line">    #bag_item&#123;&#125; &#x3D; LinkSupport:sendandwait(Clinet ,R).</span><br><span class="line">    %%阻塞在接受消息，会有自己可以做Socket的超时限制，CTH也有超时限制，每个用例不超过30s</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h5 id="2-group模式"><a href="#2-group模式" class="headerlink" title="2.group模式"></a>2.group模式</h5><p>我理解为，一组行为组模式</p>
+<ul>
+<li>导出<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">groups() -&gt;</span><br><span class="line">    [</span><br><span class="line">        &#123;groupname, prop, testcase&#125;</span><br><span class="line">    ].</span><br><span class="line"></span><br><span class="line">%% testcases &#x3D; [testcase], testcase &#x3D; 单例|group</span><br><span class="line">%% prop &#x3D; [repeat, mode] </span><br><span class="line">%% mode &#x3D; 并发|顺序|随机， repeat有很多，可以看看官方文档的返回值</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">init_per_group(_Groupname, Config) -&gt;</span><br><span class="line">    Link &#x3D; LinkSupport:start_link(),</span><br><span class="line">    [&#123;link, Link&#125; | Config].</span><br><span class="line"></span><br><span class="line">end_per_group(_Groupname, _Config) -&gt;</span><br><span class="line">    ok.</span><br></pre></td></tr></table></figure></li>
+<li>遇到的问题  </li>
+</ul>
+<ol>
+<li>假设把创建连接，放到per_group中，等创建testcase再拿出来的时候会报错，假设连接时TCP，因为此时的group进程会挂掉，Socket Controlling是group 然后当testcase进程需要访问Socket的时候，会报错。</li>
+<li>每个组内的用例，都是独立的，都是独立的进程，每次启动都只会Goup传过来的Conifg（待考就，是否有配置可调，但是我没测出来可以）</li>
+<li></li>
+</ol>
+<ul>
+<li>实现t_bag_function/1的函数</li>
+</ul>
+<p>更多方法function参考<br>地址 <a href="https://erlang.org/doc/man/common_test.html" target="_blank" rel="noopener">https://erlang.org/doc/man/common_test.html</a></p>
+<h5 id="–总结–"><a href="#–总结–" class="headerlink" title="–总结–"></a>–总结–</h5><p>假设需要多例测试的话，在group内用test_case即可，然后再每个test_case的用例方法抽出来，需要用哪个就调用哪个</p>
+<h4 id="（3）Common-test拓展"><a href="#（3）Common-test拓展" class="headerlink" title="（3）Common_test拓展"></a>（3）Common_test拓展</h4><h5 id="1-CTH"><a href="#1-CTH" class="headerlink" title="1.CTH"></a>1.CTH</h5><h4 id="待补充"><a href="#待补充" class="headerlink" title="待补充"></a>待补充</h4><hr>
+<h3 id="二、eunit"><a href="#二、eunit" class="headerlink" title="二、eunit"></a>二、eunit</h3><h4 id="初始Eunit"><a href="#初始Eunit" class="headerlink" title="初始Eunit"></a>初始Eunit</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">官方文档提到，参考了很多oop unit的思想，</span><br><span class="line">一般来说，可以测试模块、进程、甚至整个应用,但是unit这个词代表单元，最好还是以模块为基准去测试</span><br></pre></td></tr></table></figure>
+<h4 id="Eunit实践"><a href="#Eunit实践" class="headerlink" title="Eunit实践"></a>Eunit实践</h4><p>step1：包含库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-include_lib(&quot;eunit&#x2F;include&#x2F;eunit.hrl&quot;).</span><br></pre></td></tr></table></figure>
+<p>step2：导出test方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1.官方文档说到任何匹配..._test() or ..._test_的函数，全部都会自动的被认为是导出的，</span><br><span class="line">2.单元测试时，用期望值去匹配函数，例如：[2,1] &#x3D; lists:reverse([1,2]). 假设期望值不正确就抛错误</span><br><span class="line">3.并且函数结尾不要catch错误然后返回返回值，让其直接抛出错误让Eunit catch ,任何返回值返回，Eunit都会当时成功</span><br><span class="line"></span><br><span class="line">%%test generator</span><br><span class="line">命名规则：”_test_&quot;</span><br><span class="line">返回一个测试集合，免掉了每个测试用例都要写一个单独的方法</span><br></pre></td></tr></table></figure>
+<p>step3：一个简单的例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">  -module(fib).</span><br><span class="line">  -export([fib&#x2F;1]).</span><br><span class="line">     -ifdef(TEST).</span><br><span class="line">  -include_lib(&quot;eunit&#x2F;include&#x2F;eunit.hrl&quot;).</span><br><span class="line">  -endif.</span><br><span class="line"></span><br><span class="line">  fib(0) -&gt; 1;</span><br><span class="line">  fib(1) -&gt; 1;</span><br><span class="line">  fib(N) when N &gt; 1 -&gt; fib(N-1) + fib(N-2).</span><br><span class="line"></span><br><span class="line">  fib_test_() -&gt;</span><br><span class="line">      [?_assert(fib(0) &#x3D;:&#x3D; 1),</span><br><span class="line">?_assert(fib(1) &#x3D;:&#x3D; 1),</span><br><span class="line">?_assert(fib(2) &#x3D;:&#x3D; 2),</span><br><span class="line">?_assert(fib(3) &#x3D;:&#x3D; 3),</span><br><span class="line">?_assert(fib(4) &#x3D;:&#x3D; 5),</span><br><span class="line">?_assert(fib(5) &#x3D;:&#x3D; 8),</span><br><span class="line">?_assertException(error, function_clause, fib(-1)),</span><br><span class="line">?_assert(fib(31) &#x3D;:&#x3D; 2178309)</span><br><span class="line">      ].</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>关于宏定义的使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">?assert(表达式) %%判断返回值是否是true，不是就抛错</span><br><span class="line">?_test(表达式) %%自动添加行号当测试进行的时候，增加可读性</span><br><span class="line">?_assertException(表达式) %%</span><br><span class="line"></span><br><span class="line">%%定义不要测试的宏</span><br><span class="line">-define(NOTEST, 1).</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>更多宏的使用请参考官方文档： <a href="https://erlang.org/doc/apps/eunit/chapter.html#Simple_test_objects" target="_blank" rel="noopener">https://erlang.org/doc/apps/eunit/chapter.html#Simple_test_objects</a></p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/06/04/Erlang/recon/" rel="next" title="UAT环境的一次cpu占用过高">
+                <i class="fa fa-chevron-left"></i> UAT环境的一次cpu占用过高
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/06/04/Erlang/erlang_hotload/" rel="prev" title="Erlang热更新原理">
+                Erlang热更新原理 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">heyaojia</p>
+              <p class="site-description motion-element" itemprop="description">游戏行业的一枚小鲜肉</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/HillCool" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#《Erlang-Test》"><span class="nav-number">1.</span> <span class="nav-text">《Erlang Test》</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一、common-test"><span class="nav-number">2.</span> <span class="nav-text">一、common_test</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#（1）初识common-test"><span class="nav-number">2.1.</span> <span class="nav-text">（1）初识common_test</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-common-test-简介"><span class="nav-number">2.1.1.</span> <span class="nav-text">1.common_test 简介</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-common-test-基本用法"><span class="nav-number">2.1.2.</span> <span class="nav-text">2.common_test 基本用法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（2）Common-test实践"><span class="nav-number">2.2.</span> <span class="nav-text">（2）Common_test实践</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-testcase模式（这里我理解为单例，一个test进程做事"><span class="nav-number">2.2.1.</span> <span class="nav-text">1.testcase模式（这里我理解为单例，一个test进程做事</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-group模式"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.group模式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#–总结–"><span class="nav-number">2.2.3.</span> <span class="nav-text">–总结–</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（3）Common-test拓展"><span class="nav-number">2.3.</span> <span class="nav-text">（3）Common_test拓展</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-CTH"><span class="nav-number">2.3.1.</span> <span class="nav-text">1.CTH</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#待补充"><span class="nav-number">2.4.</span> <span class="nav-text">待补充</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、eunit"><span class="nav-number">3.</span> <span class="nav-text">二、eunit</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#初始Eunit"><span class="nav-number">3.1.</span> <span class="nav-text">初始Eunit</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Eunit实践"><span class="nav-number">3.2.</span> <span class="nav-text">Eunit实践</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">heyaojia</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

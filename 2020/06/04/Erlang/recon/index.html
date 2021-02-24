@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="cn">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.0.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.0" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta property="og:site_name" content="hill&#39;s blog">
+<meta property="og:locale" content="cn">
+<meta property="article:published_time" content="2017-07-10T08:36:26.000Z">
+<meta property="article:modified_time" content="2020-06-04T09:05:51.361Z">
+<meta property="article:author" content="heyaojia">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/categories/"/>
+
+
+
+
+
+  <title>UAT环境的一次cpu占用过高 | hill's blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="cn">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">hill's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/04/Erlang/recon/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="heyaojia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hill's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">UAT环境的一次cpu占用过高</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-04T22:25:58+08:00">2020-06-04</time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Erlang/" itemprop="url" rel="index">
+                    <span itemprop="name">Erlang</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="UAT环境的一次cpu占用过高"><a href="#UAT环境的一次cpu占用过高" class="headerlink" title="UAT环境的一次cpu占用过高"></a>UAT环境的一次cpu占用过高</h2><h6 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">常言道 知己知彼，方能百战百胜，寻找系统中占用高的地方，也是一门必修课</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="知识列表"><a href="#知识列表" class="headerlink" title="知识列表:"></a>知识列表:</h4><ol>
+<li>Erlang调度原理（reduction）</li>
+<li>Erlang vm</li>
+<li>Erlang排查工具<a id="more"></a>
+<h4 id="概念的补充："><a href="#概念的补充：" class="headerlink" title="概念的补充："></a>概念的补充：</h4></li>
+</ol>
+<h5 id="什么是调度-一篇好文章"><a href="#什么是调度-一篇好文章" class="headerlink" title="什么是调度(一篇好文章)"></a>什么是调度(<a href="https://cloud.tencent.com/developer/article/1199983" target="_blank" rel="noopener">一篇好文章</a>)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">调度是将任务分发给工作者（一般是cpu）的一个策略，调度分为两种</span><br><span class="line">抢占式：抢占式调度器在所有运行任务中切换上下文，并且有权利抢占（中断）任务执行并稍后恢复执行而不需要被强占的任务配合。  </span><br><span class="line">        它基于优先级，时间切片，reduction技术。</span><br><span class="line">协作式：协作式调度器在进行上下文切换时需要任务的配合。在这种调度模式下调度器让运行的任务周期性主动释放控制权或者在idle状态时主动释放，然后开始执行新任务，等待新任务自发返回控制权。</span><br><span class="line">Erlang调度是抢占式，调度器去选择一个进程去执行他的代码，会采用多个轮询的方式，抢占一个process时，会根据reductions来判断，reducetions用一次则减1，到0后又会分配给下一个cpu分配新的reductions</span><br></pre></td></tr></table></figure>
+<h5 id="erlang-smp-关于smp的使用"><a href="#erlang-smp-关于smp的使用" class="headerlink" title="erlang smp(关于smp的使用)"></a>erlang smp(<a href="https://blog.csdn.net/swedenfeng/article/details/53615137" target="_blank" rel="noopener">关于smp的使用</a>)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">什么是smp？ 看图搞掂</span><br><span class="line">图一：单个scheduler， 对应一个run队列，无需加锁</span><br><span class="line">图二：多个scheduler， 对应多个run队列，无需加锁</span><br></pre></td></tr></table></figure>
+<p><img src="http://dl2.iteye.com/upload/attachment/0107/6867/f6a1f5ce-7621-3ec0-9be8-6c3e2018f807.png" alt="image"><br><img src="https://pic002.cnblogs.com/images/2012/17329/2012020112283789.png" alt="image"></p>
+<p>网上看到了一篇关于游戏设计的文章</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">进程发消息会扣除reduction，而且这个reduction扣除大小还受到接收者进程影响。假如直接在地图进程做消息广播，就会导致地图进程受到的调度极度减少，影响战斗计算。</span><br><span class="line">&#96;</span><br></pre></td></tr></table></figure>
+<p>所以在相关进程内，可以spwan多几个进程去做事，不要在主进程里面发消息，会减少reduction</p>
+<h4 id="一、排查uat奔溃的问题"><a href="#一、排查uat奔溃的问题" class="headerlink" title="一、排查uat奔溃的问题"></a>一、<a href="https://blog.csdn.net/huang1196/article/details/38660325" target="_blank" rel="noopener">排查uat奔溃的问题</a></h4><p>排查问题的步骤：</p>
+<ol>
+<li>写一个gen_server模块出来定时etop，检查哪个进程占用率最高</li>
+<li>比较队列里占用最高的进程是否有出现N次</li>
+<li>有则用fprof去检测他，并生成该文件的报告（在线可以用eprof）  </li>
+</ol>
+<p>** webtool已经弃用了  </p>
+<h5 id="看到有使用Recon"><a href="#看到有使用Recon" class="headerlink" title="*看到有使用Recon"></a>*看到有使用Recon</h5><h4 id="一-1、关于recon的使用"><a href="#一-1、关于recon的使用" class="headerlink" title="一.1、关于recon的使用"></a>一.1、<a href="https://blog.csdn.net/hailang_hu/article/details/46888593" target="_blank" rel="noopener">关于recon的使用</a></h4><hr>
+<p><a href="https://blog.csdn.net/hailang_hu/article/details/46888593" target="_blank" rel="noopener">recon github地址</a>  </p>
+<p><a href="https://ferd.github.io/recon/" target="_blank" rel="noopener">recon doc github地址</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">介绍几个函数  </span><br><span class="line">1.堆栈、内存使用情况最高的Num个</span><br><span class="line">-spec proc_count(memory | message_queue_len | heap_size | total_heap_size | garbage_collection, Num(多少个))</span><br><span class="line">recon:proc_count()</span><br><span class="line"></span><br><span class="line">2.进程信息</span><br><span class="line">recon:info()</span><br></pre></td></tr></table></figure>
+
+<h4 id="二、关于erlang-now的使用"><a href="#二、关于erlang-now的使用" class="headerlink" title="二、关于erlang now的使用"></a>二、<a href="http://blog.yufeng.info/archives/2977" target="_blank" rel="noopener">关于erlang now的使用</a></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">简单来说，erlang now获取时间时会有erts_timeofday_mtx锁，因为他需要矫正一个唯一时间，在大量并发的时候，性能瓶颈就上来了</span><br></pre></td></tr></table></figure>
+
+<h3 id="UAT环境的一次内存泄漏"><a href="#UAT环境的一次内存泄漏" class="headerlink" title="UAT环境的一次内存泄漏"></a>UAT环境的一次内存泄漏</h3><p><a href="https://my.oschina.net/qinlinwang/blog/110351?p=%7B%7Bpage%7D%7D" target="_blank" rel="noopener">一篇很有趣的文章</a><br>如何搞垮你的erlang</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. 耗尽atom </span><br><span class="line">2。进程的耗尽 </span><br><span class="line">3。洪泛消息到一个进程的mailbox </span><br><span class="line">4。在一个单独的进程中创建了太多的binary数据</span><br></pre></td></tr></table></figure>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/06/04/Mysql/mysql_exercise-2/" rel="next" title="Mysql50句练习下">
+                <i class="fa fa-chevron-left"></i> Mysql50句练习下
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/06/04/Erlang/erlang_test/" rel="prev" title="《Erlang Test》">
+                《Erlang Test》 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">heyaojia</p>
+              <p class="site-description motion-element" itemprop="description">游戏行业的一枚小鲜肉</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/HillCool" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#UAT环境的一次cpu占用过高"><span class="nav-number">1.</span> <span class="nav-text">UAT环境的一次cpu占用过高</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#前言："><span class="nav-number">1.0.0.0.1.</span> <span class="nav-text">前言：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#知识列表"><span class="nav-number">1.0.1.</span> <span class="nav-text">知识列表:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#概念的补充："><span class="nav-number">1.0.2.</span> <span class="nav-text">概念的补充：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是调度-一篇好文章"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">什么是调度(一篇好文章)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#erlang-smp-关于smp的使用"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">erlang smp(关于smp的使用)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一、排查uat奔溃的问题"><span class="nav-number">1.0.3.</span> <span class="nav-text">一、排查uat奔溃的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#看到有使用Recon"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">*看到有使用Recon</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一-1、关于recon的使用"><span class="nav-number">1.0.4.</span> <span class="nav-text">一.1、关于recon的使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、关于erlang-now的使用"><span class="nav-number">1.0.5.</span> <span class="nav-text">二、关于erlang now的使用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UAT环境的一次内存泄漏"><span class="nav-number">1.1.</span> <span class="nav-text">UAT环境的一次内存泄漏</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">heyaojia</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

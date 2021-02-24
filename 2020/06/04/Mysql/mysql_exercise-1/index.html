@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="cn">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.0.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.0" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta property="og:site_name" content="hill&#39;s blog">
+<meta property="og:locale" content="cn">
+<meta property="article:published_time" content="2017-07-10T08:36:26.000Z">
+<meta property="article:modified_time" content="2020-06-04T09:05:51.361Z">
+<meta property="article:author" content="heyaojia">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/categories/"/>
+
+
+
+
+
+  <title>Mysql50句练习上 | hill's blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="cn">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">hill's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/04/Mysql/mysql_exercise-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="heyaojia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hill's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Mysql50句练习上</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-04T22:11:11+08:00">2020-06-04</time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">Mysql</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="Mysql50句练习上"><a href="#Mysql50句练习上" class="headerlink" title="Mysql50句练习上"></a>Mysql50句练习上</h4><h5 id="前言-故不积跬步，无以至千里"><a href="#前言-故不积跬步，无以至千里" class="headerlink" title="前言:  故不积跬步，无以至千里"></a>前言:  故不积跬步，无以至千里</h5><h5 id="安装地址"><a href="#安装地址" class="headerlink" title="安装地址"></a>安装地址</h5><p><a href="https://www.runoob.com/mysql/mysql-install.html" target="_blank" rel="noopener">https://www.runoob.com/mysql/mysql-install.html</a></p>
+<a id="more"></a>
+<p>scrpit:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line"></span><br><span class="line">wget http:&#x2F;&#x2F;repo.mysql.com&#x2F;mysql-community-release-el7-5.noarch.rpm</span><br><span class="line"></span><br><span class="line">rpm -ivh mysql-community-release-el7-5.noarch.rpm</span><br><span class="line"></span><br><span class="line">sudo yum update -y</span><br><span class="line">sudo yum install mysql-server -y</span><br><span class="line"></span><br><span class="line">sudo chown mysql:mysql -R &#x2F;var&#x2F;lib&#x2F;mysql</span><br><span class="line"></span><br><span class="line">mysqld --initialize</span><br><span class="line"></span><br><span class="line">systemctl start mysqld</span><br><span class="line"></span><br><span class="line">systemctl status mysqld</span><br></pre></td></tr></table></figure>
+<p>sql <a href="https://www.cnblogs.com/coder-wf/p/11128033.html" target="_blank" rel="noopener">答案参考这里</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"> 1、查询&quot;01&quot;课程比&quot;02&quot;课程成绩高的学生的信息及课程分数	</span><br><span class="line"> 2、查询&quot;01&quot;课程比&quot;02&quot;课程成绩低的学生的信息及课程分数</span><br><span class="line"> 3、查询平均成绩大于等于60分的同学的学生编号和学生姓名和平均成绩</span><br><span class="line"> 4、查询平均成绩小于60分的同学的学生编号和学生姓名和平均成绩</span><br><span class="line"> 5、查询所有同学的学生编号、学生姓名、选课总数、所有课程的总成绩</span><br><span class="line"> 6、查询&quot;李&quot;姓老师的数量 </span><br><span class="line"> 7、查询学过&quot;张三&quot;老师授课的同学的信息 </span><br><span class="line"> 8、查询没学过&quot;张三&quot;老师授课的同学的信息 </span><br><span class="line"> 9、查询学过编号为&quot;01&quot;并且也学过编号为&quot;02&quot;的课程的同学的信息</span><br><span class="line"> 10、查询学过编号为&quot;01&quot;但是没有学过编号为&quot;02&quot;的课程的同学的信息</span><br><span class="line"> 11、查询没有学全所有课程的同学的信息 </span><br><span class="line"> 12、查询至少有一门课与学号为&quot;01&quot;的同学所学相同的同学的信息 </span><br><span class="line"> 13、查询和&quot;01&quot;号的同学学习的课程完全相同的其他同学的信息 </span><br><span class="line"> 14、查询没学过&quot;张三&quot;老师讲授的任一门课程的学生姓名 </span><br><span class="line"> 15、查询两门及其以上不及格课程的同学的学号，姓名及其平均成绩 </span><br><span class="line"> 16、检索&quot;01&quot;课程分数小于60，按分数降序排列的学生信息</span><br><span class="line"> 17、按平均成绩从高到低显示所有学生的所有课程的成绩以及平均成绩</span><br><span class="line"> 18.查询各科成绩最高分、最低分和平均分：以如下形式显示：课程ID，课程name，最高分，最低分，平均分，及格率，中等率，优良率，优秀率</span><br><span class="line">及格为&gt;&#x3D;60，中等为：70-80，优良为：80-90，优秀为：&gt;&#x3D;90</span><br><span class="line"> 19、按各科成绩进行排序，并显示排名</span><br><span class="line"> 20、查询学生的总成绩并进行排名</span><br><span class="line"> 21、查询不同老师所教不同课程平均分从高到低显示 </span><br><span class="line"> 22、查询所有课程的成绩第2名到第3名的学生信息及该课程成绩</span><br><span class="line"> 23、统计各科成绩各分数段人数：课程编号,课程名称,[100-85],[85-70],[70-60],[0-60]及所占百分比</span><br><span class="line"> 24、查询学生平均成绩及其名次 </span><br><span class="line"> 25、查询各科成绩前三名的记录</span><br></pre></td></tr></table></figure>
+<p>2019.7.23<br>– 1、查询”01”课程比”02”课程成绩高的学生的信息及课程分数  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">1. 个人思路：</span><br><span class="line">    先得出01课比02课成绩高的s_id, 再join student表</span><br><span class="line">    SELECT * FROM student st JOIN</span><br><span class="line">    (SELECT</span><br><span class="line">	   a.s_id ,a.s_score as 01sorce, b.s_score as 02sorce</span><br><span class="line">    FROM</span><br><span class="line">	score a</span><br><span class="line">	JOIN score b ON </span><br><span class="line">	a.s_id &#x3D; b.s_id</span><br><span class="line">	AND a.c_id &#x3D; &#39;01&#39;</span><br><span class="line">	AND b.c_id &#x3D; &#39;02&#39;</span><br><span class="line">	AND a.s_score &gt; b.s_score GROUP BY a.s_id) sc </span><br><span class="line">	ON st.s_id &#x3D; sc.s_id;</span><br><span class="line"></span><br><span class="line">缺点：使用了子查询，耗时大， 使用了0.002s</span><br><span class="line">答案思路：</span><br><span class="line">    使用三个对象进行比较</span><br><span class="line">    SELECT</span><br><span class="line">	st.*, a.s_score as 01_score, b.s_score as 02_score</span><br><span class="line">    FROM</span><br><span class="line">	student st,</span><br><span class="line">	score a,</span><br><span class="line">	score b </span><br><span class="line">    WHERE</span><br><span class="line">	a.s_id &#x3D; st.s_id</span><br><span class="line">	AND b.s_id &#x3D; st.s_id</span><br><span class="line">	AND a.c_id &#x3D; &#39;01&#39;</span><br><span class="line">	AND b.c_id &#x3D; &#39;02&#39;</span><br><span class="line">	AND a.s_score &gt; b.s_score</span><br><span class="line">    信息中只用了0.001s</span><br><span class="line">学到的要点：1.join on的一个使用</span><br><span class="line">            2.条件后必须要是要用到and连接</span><br><span class="line">            3.可以from 三个对象</span><br><span class="line">            4.不要用子查询，会慢一倍</span><br></pre></td></tr></table></figure>
+<p>–  2、查询”01”课程比”02”课程成绩低的学生的信息及课程分数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">	st.*,</span><br><span class="line">	sc.c1,</span><br><span class="line">	sc.c2 </span><br><span class="line">FROM</span><br><span class="line">	Student st</span><br><span class="line">	RIGHT JOIN (</span><br><span class="line">	SELECT</span><br><span class="line">		a.s_id,</span><br><span class="line">		a.s_score AS c1,</span><br><span class="line">		b.s_score AS c2 </span><br><span class="line">	FROM</span><br><span class="line">		( SELECT * FROM Score WHERE c_id &#x3D; &#39;01&#39; ) AS a</span><br><span class="line">		JOIN ( SELECT * FROM Score WHERE c_id &#x3D; &#39;02&#39; ) AS b ON a.s_id &#x3D; b.s_id </span><br><span class="line">		AND a.s_score &lt; b.s_score </span><br><span class="line">	) sc ON st.s_id &#x3D; sc.s_id</span><br></pre></td></tr></table></figure>
+<p>–  3、查询平均成绩大于等于60分的同学的学生编号和学生姓名和平均成绩</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">	st.*,</span><br><span class="line">	avg.avg </span><br><span class="line">FROM</span><br><span class="line">	Student st</span><br><span class="line">	INNER JOIN ( SELECT s_id, avg( s_score ) AS avg FROM Score GROUP BY s_id ) avg ON st.s_id &#x3D; avg.s_id </span><br><span class="line">	AND avg.avg &gt;&#x3D; 60 </span><br><span class="line">ORDER BY</span><br><span class="line">	avg.avg DESC</span><br><span class="line">&#96;&#96;&#96; </span><br><span class="line">--  4、查询平均成绩小于60分的同学的学生编号和学生姓名和平均成绩</span><br></pre></td></tr></table></figure>
+<p>SELECT<br>    st.*,<br>    avg.avg<br>FROM<br>    Student st<br>    INNER JOIN ( SELECT s_id, avg( s_score ) AS avg FROM Score GROUP BY s_id ) avg ON st.s_id = avg.s_id<br>    AND avg.avg &lt; 60<br>ORDER BY<br>    avg.avg DESC  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--- 5、查询所有同学的学生编号、学生姓名、选课总数、所有课程的总成绩</span><br></pre></td></tr></table></figure>
+<p>SELECT<br>    s_name,<br>    res.*<br>FROM<br>    Student st<br>    LEFT JOIN ( SELECT s_id, COUNT( c_id ) AS ‘选课总数’, SUM( s_score ) AS ‘课程总成绩’ FROM Score GROUP BY s_id ) res ON st.s_id = res.s_id </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 20200422 (6-10)</span><br><span class="line">--  6、查询&quot;李&quot;姓老师的数量</span><br></pre></td></tr></table></figure>
+<p>SELECT<br>    COUNT( DISTINCT t_id )<br>FROM<br>    Teacher<br>WHERE<br>    t_name LIKE ‘李%’ </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--  7、查询学过&quot;张三&quot;老师授课的同学的信息</span><br></pre></td></tr></table></figure>
+<p>SELECT<br>    st.*<br>FROM<br>    Student st,<br>    Score sc,<br>    Teacher tc,<br>    Course cs<br>WHERE<br>    tc.t_id = cs.t_tid<br>    AND tc.t_name = ‘张三’<br>    AND sc.c_id = cs.c_id<br>    AND st.s_id = sc.s_id </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--  8、查询没学过&quot;张三&quot;老师授课的同学的信息</span><br></pre></td></tr></table></figure>
+<p>SELECT<br>    st.*<br>FROM<br>    Student st<br>WHERE<br>    st.s_id NOT IN (<br>    SELECT<br>        sc.s_id<br>    FROM<br>        Score sc,<br>        Teacher tc,<br>        Course cs<br>    WHERE<br>        tc.t_id = cs.t_tid<br>        AND tc.t_name = ‘张三’<br>    AND sc.c_id = cs.c_id)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--  9、查询学过编号为&quot;01&quot;并且也学过编号为&quot;02&quot;的课程的同学的信息</span><br></pre></td></tr></table></figure>
+<p>SELECT<br>    st.*<br>FROM<br>    Score a,<br>    Score b,<br>    Student st<br>WHERE<br>    a.c_id = ‘01’<br>    AND b.c_id = ‘02’<br>    AND a.s_id = b.s_id<br>    AND st.s_id = a.s_id<br>    AND st.s_id = b.s_id </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--  10、查询学过编号为&quot;01&quot;但是没有学过编号为&quot;02&quot;的课程的同学的信息</span><br></pre></td></tr></table></figure>
+<p>SELECT<br>    st.*<br>FROM<br>    Student st,<br>    Score sc<br>WHERE<br>    sc.s_id NOT IN ( SELECT s_id FROM Score WHERE c_id = ‘02’ )<br>    AND sc.s_id = st.s_id<br>GROUP BY<br>    sc.s_id</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--  11、查询没有学全所有课程的同学的信息</span><br></pre></td></tr></table></figure>
+<p>SELECT<br>    st.*<br>FROM<br>    Student st<br>    LEFT JOIN Score sc ON st.s_id = sc.s_id<br>GROUP BY<br>    sc.s_id<br>HAVING<br>    COUNT( sc.c_id ) &lt;3</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--  13、查询和&quot;01&quot;号的同学学习的课程完全相同的其他同学的信息</span><br></pre></td></tr></table></figure>
+<p>SELECT<br>    a.s_id<br>FROM<br>    Student st,<br>    Score a,<br>    Score b<br>WHERE<br>    a.s_id = st.s_id<br>    AND st.s_id &lt;&gt; ‘01’<br>    AND b.s_id = ‘01’<br>    AND a.c_id = b.c_id<br>GROUP BY<br>    a.s_id<br>HAVING<br>    COUNT( a.c_id ) = 3</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--  14、查询没学过&quot;张三&quot;老师讲授的任一门课程的学生姓名</span><br></pre></td></tr></table></figure>
+<p>SELECT<br>    st1.*<br>FROM<br>    Student st1<br>WHERE<br>    st1.s_id NOT IN (<br>    SELECT<br>        st.s_id<br>    FROM<br>        Student st,<br>        Score sc,<br>        Course cs,<br>        Teacher tc<br>    WHERE<br>        st.s_id = sc.s_id<br>        AND sc.c_id = cs.c_id<br>        AND tc.t_id = cs.t_tid<br>        AND tc.t_name = ‘张三’<br>    );</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--  15、查询两门及其以上不及格课程的同学的学号，姓名及其平均成绩</span><br></pre></td></tr></table></figure>
+<p>SELECT<br>    st.*,<br>    avg( sc.s_score ) AS avg,<br>    COUNT( sc.c_id ) AS count<br>FROM<br>    Score sc,<br>    Student st<br>WHERE<br>    sc.s_id = st.s_id<br>    AND s_score &lt; 60 GROUP BY s_id HAVING count &gt;=2</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-- 21、查询不同老师所教不同课程平均分从高到低显示</span><br></pre></td></tr></table></figure>
+<p>SELECT<br>    c_id,<br>    AVG( s_score ) AS avg<br>FROM<br>    Teacher tc,<br>    Score<br>GROUP BY<br>    c_id<br>ORDER BY<br>    avg DESC</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-- 22、查询所有课程的成绩第2名到第3名的学生信息及该课程成绩</span><br></pre></td></tr></table></figure>
+<p>SELECT<br>    *<br>FROM<br>    (<br>    SELECT<br>        st.s_id,<br>        st.s_name,<br>        st.s_sex,<br>        st.s_birth,<br>        sc.c_id,<br>        sc.s_score<br>    FROM<br>        Student st,<br>        Score sc<br>    WHERE<br>        st.s_id = sc.s_id<br>        AND sc.c_id = ‘01’<br>    ORDER BY<br>        sc.s_score DESC<br>        LIMIT 1,<br>        2<br>    ) a UNION ALL<br>SELECT<br>    *<br>FROM<br>    (<br>    SELECT<br>        st.s_id,<br>        st.s_name,<br>        st.s_sex,<br>        st.s_birth,<br>        sc.c_id,<br>        sc.s_score<br>    FROM<br>        Student st,<br>        Score sc<br>    WHERE<br>        st.s_id = sc.s_id<br>        AND sc.c_id = ‘02’<br>    ORDER BY<br>        sc.s_score DESC<br>        LIMIT 1,<br>        2<br>    ) b UNION ALL<br>SELECT<br>    *<br>FROM<br>    (<br>    SELECT<br>        st.s_id,<br>        st.s_name,<br>        st.s_sex,<br>        st.s_birth,<br>        sc.c_id,<br>        sc.s_score<br>    FROM<br>        Student st,<br>        Score sc<br>    WHERE<br>        st.s_id = sc.s_id<br>        AND sc.c_id = ‘03’<br>    ORDER BY<br>        sc.s_score DESC<br>        LIMIT 1,<br>        2<br>    ) c </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-- 23、统计各科成绩各分数段人数：课程编号,课程名称,[100-85],[85-70],[70-60],[0-60]及所占百分比</span><br></pre></td></tr></table></figure>
+<p>SELECT<br>    c.c_id,<br>    c.c_name,((<br>        SELECT<br>            count( 1 )<br>        FROM<br>            Score sc<br>        WHERE<br>            sc.c_id = c.c_id<br>            AND sc.s_score &lt;= 100 AND sc.s_score &gt; 80<br>            )/(<br>        SELECT<br>            count( 1 )<br>        FROM<br>            Score sc<br>        WHERE<br>            sc.c_id = c.c_id<br>            )) “100-85”,((<br>        SELECT<br>            count( 1 )<br>        FROM<br>            Score sc<br>        WHERE<br>            sc.c_id = c.c_id<br>            AND sc.s_score &lt;= 85 AND sc.s_score &gt; 70<br>            )/(<br>        SELECT<br>            count( 1 )<br>        FROM<br>            Score sc<br>        WHERE<br>            sc.c_id = c.c_id<br>            )) “85-70”,((<br>        SELECT<br>            count( 1 )<br>        FROM<br>            Score sc<br>        WHERE<br>            sc.c_id = c.c_id<br>            AND sc.s_score &lt;= 70 AND sc.s_score &gt; 60<br>            )/(<br>        SELECT<br>            count( 1 )<br>        FROM<br>            Score sc<br>        WHERE<br>            sc.c_id = c.c_id<br>            )) “70-60”,((<br>        SELECT<br>            count( 1 )<br>        FROM<br>            Score sc<br>        WHERE<br>            sc.c_id = c.c_id<br>            AND sc.s_score &lt;= 60 AND sc.s_score &gt;= 0<br>            )/(<br>        SELECT<br>            count( 1 )<br>        FROM<br>            Score sc<br>        WHERE<br>            sc.c_id = c.c_id<br>        )) “60-0”<br>FROM<br>    Course c<br>ORDER BY<br>    c.c_id</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-- 24、查询学生平均成绩及其名次</span><br></pre></td></tr></table></figure>
+<pre><code>SET @rownum = 0;</code></pre><p>SELECT<br>    @rownum := @rownum + 1 AS rownum,<br>    a.*<br>FROM<br>    ( SELECT s_id, AVG( s_score ) FROM Score GROUP BY s_id ORDER BY AVG( s_score ) DESC ) a</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-- 25、查询各科成绩前三名的记录</span><br></pre></td></tr></table></figure>
+<p>SELECT<br>    *<br>FROM<br>    (<br>    SELECT<br>        st.s_id,<br>        st.s_name,<br>        st.s_sex,<br>        st.s_birth,<br>        sc.c_id,<br>        sc.s_score<br>    FROM<br>        Student st,<br>        Score sc<br>    WHERE<br>        st.s_id = sc.s_id<br>        AND sc.c_id = ‘01’<br>    ORDER BY<br>        sc.s_score DESC<br>        LIMIT 3<br>    ) a UNION ALL<br>SELECT<br>    *<br>FROM<br>    (<br>    SELECT<br>        st.s_id,<br>        st.s_name,<br>        st.s_sex,<br>        st.s_birth,<br>        sc.c_id,<br>        sc.s_score<br>    FROM<br>        Student st,<br>        Score sc<br>    WHERE<br>        st.s_id = sc.s_id<br>        AND sc.c_id = ‘02’<br>    ORDER BY<br>        sc.s_score DESC<br>        LIMIT 3<br>    ) b UNION ALL<br>SELECT<br>    *<br>FROM<br>    (<br>    SELECT<br>        st.s_id,<br>        st.s_name,<br>        st.s_sex,<br>        st.s_birth,<br>        sc.c_id,<br>        sc.s_score<br>    FROM<br>        Student st,<br>        Score sc<br>    WHERE<br>        st.s_id = sc.s_id<br>        AND sc.c_id = ‘03’<br>    ORDER BY<br>        sc.s_score DESC<br>    LIMIT 3<br>    ) c<br>```</p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/06/04/%E7%AE%97%E6%B3%95/sort_C++/" rel="next" title="排序算法（C++）">
+                <i class="fa fa-chevron-left"></i> 排序算法（C++）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/06/04/%E7%AE%97%E6%B3%95/hannuota/" rel="prev" title="汉诺塔">
+                汉诺塔 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">heyaojia</p>
+              <p class="site-description motion-element" itemprop="description">游戏行业的一枚小鲜肉</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/HillCool" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Mysql50句练习上"><span class="nav-number">1.</span> <span class="nav-text">Mysql50句练习上</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#前言-故不积跬步，无以至千里"><span class="nav-number">1.1.</span> <span class="nav-text">前言:  故不积跬步，无以至千里</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装地址"><span class="nav-number">1.2.</span> <span class="nav-text">安装地址</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">heyaojia</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

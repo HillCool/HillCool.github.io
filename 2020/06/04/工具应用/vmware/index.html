@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="cn">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.0.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.0" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta property="og:site_name" content="hill&#39;s blog">
+<meta property="og:locale" content="cn">
+<meta property="article:published_time" content="2017-07-10T08:36:26.000Z">
+<meta property="article:modified_time" content="2020-06-04T09:05:51.361Z">
+<meta property="article:author" content="heyaojia">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/categories/"/>
+
+
+
+
+
+  <title>虚拟机的使用笔记 | hill's blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="cn">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">hill's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/04/%E5%B7%A5%E5%85%B7%E5%BA%94%E7%94%A8/vmware/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="heyaojia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hill's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">虚拟机的使用笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-04T18:07:00+08:00">2020-06-04</time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7%E5%BA%94%E7%94%A8/" itemprop="url" rel="index">
+                    <span itemprop="name">工具应用</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="虚拟机的使用"><a href="#虚拟机的使用" class="headerlink" title="虚拟机的使用"></a>虚拟机的使用</h2><h6 id="前言"><a href="#前言" class="headerlink" title="前言:"></a>前言:</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">工欲善其事必先利其器</span><br></pre></td></tr></table></figure>
+<h6 id="ready-for-vmware"><a href="#ready-for-vmware" class="headerlink" title="ready for vmware:"></a>ready for vmware:</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">window10</span><br><span class="line">vmware 15</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h4 id="虚拟机联网"><a href="#虚拟机联网" class="headerlink" title="虚拟机联网"></a>虚拟机联网</h4><h5 id="1-桥接"><a href="#1-桥接" class="headerlink" title="1.桥接"></a>1.桥接</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">虚拟机与物理机在同一个网段，用同一个网关上网，可以互相ping通</span><br></pre></td></tr></table></figure>
+<h6 id="1-1-虚拟机桥接的实现"><a href="#1-1-虚拟机桥接的实现" class="headerlink" title="1.1 虚拟机桥接的实现"></a>1.1 虚拟机桥接的实现</h6><p>VMvare工具栏 - 虚拟网络编辑器</p>
+<h6 id="从ens33到eth0（假设是eth0的忽略）"><a href="#从ens33到eth0（假设是eth0的忽略）" class="headerlink" title="* 从ens33到eth0（假设是eth0的忽略）"></a>* 从ens33到eth0（假设是eth0的忽略）</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;default&#x2F;grub</span><br><span class="line">&#96;</span><br></pre></td></tr></table></figure>
+<p>在GRUB_CMDLINE_LINUX的最后，加上 net.ifnames=0 biosdevname=0 的参数,如下代码块：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GRUB_CMDLINE_LINUX&#x3D;”rd.lvm.lv&#x3D;rootvg&#x2F;usrlv</span><br><span class="line">rd.lvm.lv&#x3D;rootvg&#x2F;swaplv crashkernel&#x3D;auto vconsole.keymap&#x3D;us</span><br><span class="line">rd.lvm.lv&#x3D;rootvg&#x2F;rootlv vconsole.font&#x3D;latarcyrheb-sun16 rhgb</span><br><span class="line">quiet net.ifnames&#x3D;0 biosdevname&#x3D;0”</span><br></pre></td></tr></table></figure>
+<p>wq保存，执行下面这句</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub2-mkconfig -o &#x2F;boot&#x2F;grub2&#x2F;grub.cfg</span><br></pre></td></tr></table></figure>
+<ul>
+<li>建议备份一下ens33,当然也可以mv<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-enp0s3  &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-eth0 </span><br><span class="line">reboot %%之后重启</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h6 id="编辑网卡信息"><a href="#编辑网卡信息" class="headerlink" title="编辑网卡信息"></a>编辑网卡信息</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-eth0</span><br></pre></td></tr></table></figure>
+<p>获取MAC</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;udev&#x2F;rules.d&#x2F;70-persistent-net.rules</span><br></pre></td></tr></table></figure>
+<p>说一下配置ifcfg-eth0的规则</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">BOOTPROTO&#x3D;static &#x2F;&#x2F; 静态IP 不走DHCP</span><br><span class="line">HWADDR&#x3D; &#x2F;&#x2F; MAC地址</span><br><span class="line">DEVICE&#x3D;eth0 &#x2F;&#x2F;写eth0</span><br><span class="line">ONBOOT&#x3D;yes &#x2F;&#x2F;开机启动</span><br><span class="line">IPADDR&#x3D;&quot;192.168.0.225&quot;  &#x2F;&#x2F; 静态IP地址</span><br><span class="line">NETMASK&#x3D;&quot;255.255.255.0&quot; &#x2F;&#x2F; 子网掩码</span><br><span class="line">GATEWAY&#x3D;&quot;192.168.0.1&quot;   &#x2F;&#x2F; 网关 DNS</span><br></pre></td></tr></table></figure>
+<p>FAQ：</p>
+<ol>
+<li>虚拟机与物理机都能互相ping通，但是就是上不了网，咋搞<br>解决方案:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-eth0</span><br><span class="line"></span><br><span class="line">vi &#x2F;etc&#x2F;resolv.conf &#x2F;&#x2F;检查DNS是不是和物理机的DNS一致 （我就是死在这里）</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h5 id="2-NAT穿透"><a href="#2-NAT穿透" class="headerlink" title="2.NAT穿透"></a>2.NAT穿透</h5><p>有空再补充吧，虚拟机能上网了，先开搞</p>
+<hr>
+<h4 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h4><h5 id="虚拟机与主机实现文件共享"><a href="#虚拟机与主机实现文件共享" class="headerlink" title="虚拟机与主机实现文件共享"></a>虚拟机与主机实现文件共享</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;blog.csdn.net&#x2F;nesxiaogu&#x2F;article&#x2F;details&#x2F;85274626</span><br></pre></td></tr></table></figure>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/06/04/whoami/" rel="next" title="WHOAMI">
+                <i class="fa fa-chevron-left"></i> WHOAMI
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/06/04/%E7%AE%97%E6%B3%95/sort_C++/" rel="prev" title="排序算法（C++）">
+                排序算法（C++） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">heyaojia</p>
+              <p class="site-description motion-element" itemprop="description">游戏行业的一枚小鲜肉</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/HillCool" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟机的使用"><span class="nav-number">1.</span> <span class="nav-text">虚拟机的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#前言"><span class="nav-number">1.0.0.0.1.</span> <span class="nav-text">前言:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#ready-for-vmware"><span class="nav-number">1.0.0.0.2.</span> <span class="nav-text">ready for vmware:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#虚拟机联网"><span class="nav-number">1.0.1.</span> <span class="nav-text">虚拟机联网</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-桥接"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">1.桥接</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-1-虚拟机桥接的实现"><span class="nav-number">1.0.1.1.1.</span> <span class="nav-text">1.1 虚拟机桥接的实现</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#从ens33到eth0（假设是eth0的忽略）"><span class="nav-number">1.0.1.1.2.</span> <span class="nav-text">* 从ens33到eth0（假设是eth0的忽略）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#编辑网卡信息"><span class="nav-number">1.0.1.1.3.</span> <span class="nav-text">编辑网卡信息</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-NAT穿透"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">2.NAT穿透</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拓展"><span class="nav-number">1.0.2.</span> <span class="nav-text">拓展</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#虚拟机与主机实现文件共享"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">虚拟机与主机实现文件共享</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">heyaojia</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

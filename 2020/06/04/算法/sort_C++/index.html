@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="cn">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.0.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.0" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta property="og:site_name" content="hill&#39;s blog">
+<meta property="og:locale" content="cn">
+<meta property="article:published_time" content="2017-07-10T08:36:26.000Z">
+<meta property="article:modified_time" content="2020-06-04T09:05:51.361Z">
+<meta property="article:author" content="heyaojia">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/categories/"/>
+
+
+
+
+
+  <title>排序算法（C++） | hill's blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="cn">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">hill's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/04/%E7%AE%97%E6%B3%95/sort_C++/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="heyaojia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hill's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">排序算法（C++）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-04T22:11:11+08:00">2020-06-04</time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="排序算法（C-）"><a href="#排序算法（C-）" class="headerlink" title="排序算法（C++）"></a>排序算法（C++）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">前言：要想成功，就别嫌自己笨</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>主体学习框架参考 <a href="https://www.cnblogs.com/onepixel/articles/7674659.html#!comments" target="_blank" rel="noopener">图解</a>  </li>
+<li>排序知识框架（待完善）<br><img src="https://note.youdao.com/yws/api/personal/file/WEBce899174797b3541f84b96bf5997866c?method=download&shareKey=c4d07affea85fba3d7f54bbab8e7bfa6" alt="">  </li>
+<li>排序相关复杂度</li>
+</ul>
+<a id="more"></a>
+
+<table>
+<thead>
+<tr>
+<th>算法名称</th>
+<th>平均时间复杂度</th>
+<th>最好时间复杂度</th>
+<th>最坏时间复杂度</th>
+<th>空间复杂度</th>
+<th>稳定性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>冒泡排序</td>
+<td><code>$O(n^2)$</code></td>
+<td><code>$O(n)$</code></td>
+<td><code>$O(n^2)$</code></td>
+<td><code>$O(n1)$</code></td>
+<td>稳定</td>
+</tr>
+<tr>
+<td>选择排序</td>
+<td><code>$O(n^2)$</code></td>
+<td><code>$O(n^2)$</code></td>
+<td><code>$O(n^2)$</code></td>
+<td><code>$O(n1)$</code></td>
+<td>不稳定</td>
+</tr>
+<tr>
+<td>插入排序</td>
+<td><code>$O(n^2)$</code></td>
+<td><code>$O(n)$</code></td>
+<td><code>$O(n^2)$</code></td>
+<td><code>$O(n1)$</code></td>
+<td>稳定</td>
+</tr>
+<tr>
+<td>希尔排序</td>
+<td><code>$O(n^2)$</code></td>
+<td><code>$O(n)$</code></td>
+<td><code>$O(n^2)$</code></td>
+<td><code>$O(n1)$</code></td>
+<td>不稳定</td>
+</tr>
+<tr>
+<td>归并排序</td>
+<td><code>$O(nlog2^n)$</code></td>
+<td><code>$O(nlog2^n)$</code></td>
+<td><code>$O(nlog2^n)$</code></td>
+<td><code>$O(n)$</code></td>
+<td>稳定</td>
+</tr>
+<tr>
+<td>快速排序</td>
+<td><code>$O(nlog2^n)$</code></td>
+<td><code>$O(nlog2^n)$</code></td>
+<td><code>$O(n^2)$</code></td>
+<td><code>$O(nlog2^n)$</code></td>
+<td>稳定</td>
+</tr>
+<tr>
+<td>堆排序</td>
+<td><code>$O(n^2)$</code></td>
+<td><code>$O(n)$</code></td>
+<td><code>$O(n^2)$</code></td>
+<td><code>$O(n1)$</code></td>
+<td>稳定</td>
+</tr>
+</tbody></table>
+<h4 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h4><h5 id="1-思想："><a href="#1-思想：" class="headerlink" title="1. 思想："></a>1. 思想：</h5><p>一遍历一边把顺序错误的元素交换，等于一直找比自己大或者小的元素，一路放到最后,时间复杂度是<code>$O(n^2)$</code></p>
+<h5 id="2-实现"><a href="#2-实现" class="headerlink" title="2. 实现"></a>2. 实现</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">void bubbleSort(int* list)&#123;</span><br><span class="line">    const int length &#x3D; my_length(list);</span><br><span class="line">    for(int i  &#x3D; 0; i &lt; length - 1; i++)&#123;</span><br><span class="line">        for (int j &#x3D; i; j &lt; length - 1; j++) &#123;</span><br><span class="line">            if (list[i] &gt; list[j+1]) &#123;</span><br><span class="line">                int temp &#x3D; list[i];</span><br><span class="line">                list[i] &#x3D; list[j + 1];</span><br><span class="line">                list[j + 1] &#x3D; temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h4><h5 id="1-思想：-1"><a href="#1-思想：-1" class="headerlink" title="1. 思想："></a>1. 思想：</h5><h5 id="2-实现-1"><a href="#2-实现-1" class="headerlink" title="2. 实现:"></a>2. 实现:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">void selectionSort(int *list)&#123;</span><br><span class="line">    const int length &#x3D; my_length(list);</span><br><span class="line">    int temp &#x3D; 0;</span><br><span class="line">    for (int i &#x3D; 0; i &lt; length -1; i++) &#123;</span><br><span class="line">        temp &#x3D; i;</span><br><span class="line">        for (int j &#x3D; i + 1 ; j &lt; length - 1; j++) &#123;</span><br><span class="line">            if(list[temp] &gt; list[j])&#123;</span><br><span class="line">                temp &#x3D; j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if (i !&#x3D; temp) &#123;</span><br><span class="line">            list[i] &#x3D; list[i] + list[temp];</span><br><span class="line">            list[temp] &#x3D; list[i] - list[temp];</span><br><span class="line">            list[i] &#x3D; list[i] - list[temp];</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h4><h5 id="思想："><a href="#思想：" class="headerlink" title="思想："></a>思想：</h5><p>左边是一个有序的序列，每次有下标i去寻找在左边序列的位置。<br>平均时间复杂度是：<code>$O(n^2)$</code><br>最坏时间复杂度是：<code>$O(n^2)$</code><br>最好时间复杂度是：<code>$O(n)$</code><br>空间复杂度是：<code>$O(1)$</code></p>
+<h5 id="实现："><a href="#实现：" class="headerlink" title="实现："></a>实现：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;起始端维持一个有序的序列</span><br><span class="line">void insertSort(int* list, int length)&#123;</span><br><span class="line">    for (int i &#x3D; 1; i &lt; length; i++)&#123;</span><br><span class="line">        for (int j &#x3D; i - 1; j &gt;&#x3D; 0; j--) &#123;</span><br><span class="line">            if (list[i] &gt; list[j]) &#123;</span><br><span class="line">                break;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                list[i] &#x3D; list[i] + list[j];</span><br><span class="line">                list[j] &#x3D; list[i] - list[j];</span><br><span class="line">                list[i] &#x3D; list[i] - list[j];</span><br><span class="line">                i &#x3D; j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h4><h5 id="思想：-1"><a href="#思想：-1" class="headerlink" title="思想："></a>思想：</h5><h5 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">void hillSort(int* list, int length)&#123;</span><br><span class="line">    for(int i &#x3D; length&#x2F;2; i&gt;&#x3D; 1; i&#x2F;&#x3D;2) &#123;</span><br><span class="line">        for (int j &#x3D; 0; j &lt; length - i; j +&#x3D; 1)&#123;</span><br><span class="line">            int next &#x3D; j + i;</span><br><span class="line">            if(list[j] &gt; list[next])&#123;</span><br><span class="line">                list[next] &#x3D; list[next] + list[j];</span><br><span class="line">                list[j] &#x3D; list[next] - list[j];</span><br><span class="line">                list[next] &#x3D; list[next] - list[j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h4><h5 id="思想：-2"><a href="#思想：-2" class="headerlink" title="思想："></a>思想：</h5><p>分治法，每个相邻的两个区间的值有序，则整个序列有序，区间用二分法，每次除以2<br>平均时间复杂度是：<code>$O(n^2)$</code><br>最坏时间复杂度是：<code>$O(n^2)$</code><br>最好时间复杂度是：<code>$O(n)$</code><br>空间复杂度是：<code>$O(1)$</code></p>
+<h5 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;并归排序</span><br><span class="line">void doMerge(int *list, int start1, int end1, int start2, int end2)&#123;</span><br><span class="line">    int x &#x3D; start1;</span><br><span class="line">    int y &#x3D; start2;</span><br><span class="line">    int list_index &#x3D; 0;</span><br><span class="line">    int length &#x3D; end2 - start1 + 1;</span><br><span class="line">    int templist[length];</span><br><span class="line">    int temp_index;</span><br><span class="line">    for (temp_index &#x3D; 0 ; x &lt;&#x3D; end1 &amp;&amp; y &lt;&#x3D; end2; temp_index++) &#123;</span><br><span class="line">        if(list[x] &gt; list[y])&#123;</span><br><span class="line">            templist[temp_index] &#x3D; list[y++];</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            templist[temp_index] &#x3D; list[x++];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#x2F;&#x2F;    print_list(templist, length);</span><br><span class="line">    while (x &lt;&#x3D; end1) &#123;</span><br><span class="line">        templist[temp_index++] &#x3D; list[x++];</span><br><span class="line">    &#125;</span><br><span class="line">    while (y &lt;&#x3D; end2) &#123;</span><br><span class="line">        templist[temp_index++] &#x3D; list[y++];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    list_index &#x3D; 0;</span><br><span class="line">    for (int j&#x3D;start1; j &lt;&#x3D; end2; j++, list_index++) &#123;</span><br><span class="line">        list[j] &#x3D; templist[list_index];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void doMergeSort(int *list, int start, int end)&#123;</span><br><span class="line">    if(start &lt; end)&#123;</span><br><span class="line">        int mid &#x3D; (end + start) &#x2F;2;</span><br><span class="line">        doMergeSort(list, start, mid);</span><br><span class="line">        doMergeSort(list, mid + 1, end);</span><br><span class="line">&#x2F;&#x2F;        cout &lt;&lt; &quot;start:&quot; &lt;&lt;start &lt;&lt; &quot;n&quot; &lt;&lt; mid &lt;&lt; &quot;end&quot; &lt;&lt; end &lt;&lt;endl;</span><br><span class="line">        doMerge(list, start, mid , mid + 1, end);</span><br><span class="line">&#x2F;&#x2F;        print_list(list, 15);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">void mergeSort(int *list)&#123;</span><br><span class="line">    int length &#x3D; 15;</span><br><span class="line">    doMergeSort(list, 0, length - 1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h4><h5 id="思想：-3"><a href="#思想：-3" class="headerlink" title="思想："></a>思想：</h5><p>分治法，每次取一个基准，一般是首位，小于基准的放左边，大于基准的放右边<br>平均时间复杂度是：<code>$O(n^2)$</code><br>最坏时间复杂度是：<code>$O(n^2)$</code><br>最好时间复杂度是：<code>$O(n)$</code><br>空间复杂度是：<code>$O(1)$</code></p>
+<h5 id="实现-2"><a href="#实现-2" class="headerlink" title="实现"></a>实现</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;快速排序</span><br><span class="line">&#x2F;&#x2F;找下标，返回边界</span><br><span class="line">&#x2F;&#x2F;切分函数</span><br><span class="line">int partition(int *list, int pivot, int start, int end)&#123;</span><br><span class="line">    int i &#x3D; start , j &#x3D; end;</span><br><span class="line">    while (i &lt; j) &#123;</span><br><span class="line">        if(list[i] &gt; list[pivot])</span><br><span class="line">        &#123;</span><br><span class="line">            if (list[j] &lt; list[pivot]) &#123;</span><br><span class="line">                sawp(list, j, i);</span><br><span class="line">                i++;</span><br><span class="line">                j--;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if(list[pivot] &gt; list[i])&#123;</span><br><span class="line">        return i;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        return i - 1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">void do_quick(int *list, int start, int end)&#123;</span><br><span class="line">    if(start &lt; end)&#123;</span><br><span class="line">        auto new_pivot &#x3D; partition(list, start, start, end);</span><br><span class="line">        if(start !&#x3D; new_pivot)&#123;</span><br><span class="line">            list[new_pivot] &#x3D; list[start] + list[new_pivot];</span><br><span class="line">            list[start] &#x3D; list[new_pivot] - list[start];</span><br><span class="line">            list[new_pivot] &#x3D; list[new_pivot] - list[start];</span><br><span class="line">        &#125;</span><br><span class="line">&#x2F;&#x2F;        print_list(list, 15);</span><br><span class="line">        do_quick(list, start, new_pivot - 1);</span><br><span class="line">        do_quick(list, new_pivot + 1, end);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void quickSort(int *list, int length)&#123;</span><br><span class="line">    do_quick(list, 0, length-1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h4><h5 id="思想：-4"><a href="#思想：-4" class="headerlink" title="思想："></a>思想：</h5><p>利用大顶堆的原理，每次把最大的堆顶取出来，与堆的最后一个元素交换，再继续做大顶堆直至结束<br>平均时间复杂度是：<code>$O(n^2)$</code><br>最坏时间复杂度是：<code>$O(n^2)$</code><br>最好时间复杂度是：<code>$O(n)$</code><br>空间复杂度是：<code>$O(1)$</code></p>
+<h5 id="实现-3"><a href="#实现-3" class="headerlink" title="实现"></a>实现</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;堆排序</span><br><span class="line">void heap_swap(int *list, int j)&#123;</span><br><span class="line">    int left &#x3D; 2 * j +1;</span><br><span class="line">    int right &#x3D; 2 * j +2;</span><br><span class="line">    if(list[left] &gt; list[j])&#123;</span><br><span class="line">        sawp(list, left, j);</span><br><span class="line">    &#125;</span><br><span class="line">    if(list[right] &gt; list[j])&#123;</span><br><span class="line">        sawp(list, right, j);</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void heap_reswap(int *list, int j)&#123;</span><br><span class="line">    int father;</span><br><span class="line">    while(j &gt; 0)&#123;</span><br><span class="line">        if (j % 2 &#x3D;&#x3D; 1) &#123;</span><br><span class="line">             father &#x3D; (j -1) &#x2F; 2;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">             father &#x3D; (j -2) &#x2F; 2;</span><br><span class="line">        &#125;</span><br><span class="line">        if(list[j] &gt; list[father])&#123;</span><br><span class="line">            sawp(list, father, j);</span><br><span class="line">            j &#x3D; father;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void heapSort(int *list, int length)&#123;</span><br><span class="line">    for(int i &#x3D; length - 1; i &gt; 0 ;i--)&#123;</span><br><span class="line">        for (int j &#x3D; 0; j &lt; i &#x2F; 2 ; j++) &#123;</span><br><span class="line">            if(j &#x3D;&#x3D; 0)</span><br><span class="line">            &#123;</span><br><span class="line">                heap_swap(list, j);</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                heap_swap(list, j);</span><br><span class="line">                heap_reswap(list, j);</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        sawp(list, i, 0);</span><br><span class="line">&#x2F;&#x2F;        print_list(list, 15);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="计数排序"><a href="#计数排序" class="headerlink" title="计数排序"></a>计数排序</h4><h5 id="思想：-5"><a href="#思想：-5" class="headerlink" title="思想："></a>思想：</h5><p>获得最大值，用最大值去构建一个数组，遍历列表一次，把命中下标的值加一，后面在遍历该数组，val有多少个，就拼多少个key给他<br>平均时间复杂度是：<code>$O(n^2)$</code><br>最坏时间复杂度是：<code>$O(n^2)$</code><br>最好时间复杂度是：<code>$O(n)$</code><br>空间复杂度是：<code>$O(1)$</code></p>
+<h5 id="实现-4"><a href="#实现-4" class="headerlink" title="实现"></a>实现</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;计数排序</span><br><span class="line">void countingSort(int *list, int length)&#123;</span><br><span class="line">    for (int j &#x3D; 0; j &lt; length &#x2F; 2 ; j++) &#123;</span><br><span class="line">               if(j &#x3D;&#x3D; 0)</span><br><span class="line">               &#123;</span><br><span class="line">                   heap_swap(list, j);</span><br><span class="line">               &#125;else&#123;</span><br><span class="line">                   heap_swap(list, j);</span><br><span class="line">                   heap_reswap(list, j);</span><br><span class="line">               &#125;</span><br><span class="line">               </span><br><span class="line">           &#125;</span><br><span class="line">    int max &#x3D; list[0] + 1;</span><br><span class="line">    int *templist &#x3D; new int[max]();</span><br><span class="line">    for (int i &#x3D; 0; i &lt; length; i++)&#123;</span><br><span class="line">        int j &#x3D; list[i];</span><br><span class="line">        templist[j] +&#x3D; 1;</span><br><span class="line">    &#125;</span><br><span class="line">    int index &#x3D; 0;</span><br><span class="line">    </span><br><span class="line">    for(int i &#x3D;0; i&lt; max; i++)&#123;</span><br><span class="line">        int j &#x3D; templist[i];</span><br><span class="line">        if (j &#x3D;&#x3D; 0) &#123;</span><br><span class="line">            continue;;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            for(int z &#x3D; 0; z &lt; j; z ++, index++)&#123;</span><br><span class="line">                list[index] &#x3D; i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h6 id="非比较类排序讲原理，不写实现了"><a href="#非比较类排序讲原理，不写实现了" class="headerlink" title="非比较类排序讲原理，不写实现了"></a>非比较类排序讲原理，不写实现了</h6><h4 id="桶排序"><a href="#桶排序" class="headerlink" title="桶排序"></a>桶排序</h4><h5 id="思想：-6"><a href="#思想：-6" class="headerlink" title="思想："></a>思想：</h5><p>原理正文<br>平均时间复杂度是：<br>最坏时间复杂度是：<br>最好时间复杂度是：<br>空间复杂度是：：</p>
+<h4 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h4><h5 id="思想：-7"><a href="#思想：-7" class="headerlink" title="思想："></a>思想：</h5><p>原理正文<br>平均时间复杂度是：<br>最坏时间复杂度是：<br>最好时间复杂度是：<br>空间复杂度是：  </p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/06/04/%E5%B7%A5%E5%85%B7%E5%BA%94%E7%94%A8/vmware/" rel="next" title="虚拟机的使用笔记">
+                <i class="fa fa-chevron-left"></i> 虚拟机的使用笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/06/04/Mysql/mysql_exercise-1/" rel="prev" title="Mysql50句练习上">
+                Mysql50句练习上 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">heyaojia</p>
+              <p class="site-description motion-element" itemprop="description">游戏行业的一枚小鲜肉</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/HillCool" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#排序算法（C-）"><span class="nav-number">1.</span> <span class="nav-text">排序算法（C++）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#冒泡排序"><span class="nav-number">1.1.</span> <span class="nav-text">冒泡排序</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-思想："><span class="nav-number">1.1.1.</span> <span class="nav-text">1. 思想：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-实现"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. 实现</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择排序"><span class="nav-number">1.2.</span> <span class="nav-text">选择排序</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-思想：-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. 思想：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-实现-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. 实现:</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插入排序"><span class="nav-number">1.3.</span> <span class="nav-text">插入排序</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#思想："><span class="nav-number">1.3.1.</span> <span class="nav-text">思想：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#实现："><span class="nav-number">1.3.2.</span> <span class="nav-text">实现：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#希尔排序"><span class="nav-number">1.4.</span> <span class="nav-text">希尔排序</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#思想：-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">思想：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#实现"><span class="nav-number">1.4.2.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#归并排序"><span class="nav-number">1.5.</span> <span class="nav-text">归并排序</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#思想：-2"><span class="nav-number">1.5.1.</span> <span class="nav-text">思想：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#实现-1"><span class="nav-number">1.5.2.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#快速排序"><span class="nav-number">1.6.</span> <span class="nav-text">快速排序</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#思想：-3"><span class="nav-number">1.6.1.</span> <span class="nav-text">思想：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#实现-2"><span class="nav-number">1.6.2.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#堆排序"><span class="nav-number">1.7.</span> <span class="nav-text">堆排序</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#思想：-4"><span class="nav-number">1.7.1.</span> <span class="nav-text">思想：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#实现-3"><span class="nav-number">1.7.2.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计数排序"><span class="nav-number">1.8.</span> <span class="nav-text">计数排序</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#思想：-5"><span class="nav-number">1.8.1.</span> <span class="nav-text">思想：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#实现-4"><span class="nav-number">1.8.2.</span> <span class="nav-text">实现</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#非比较类排序讲原理，不写实现了"><span class="nav-number">1.8.2.1.</span> <span class="nav-text">非比较类排序讲原理，不写实现了</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#桶排序"><span class="nav-number">1.9.</span> <span class="nav-text">桶排序</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#思想：-6"><span class="nav-number">1.9.1.</span> <span class="nav-text">思想：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基数排序"><span class="nav-number">1.10.</span> <span class="nav-text">基数排序</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#思想：-7"><span class="nav-number">1.10.1.</span> <span class="nav-text">思想：</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">heyaojia</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
